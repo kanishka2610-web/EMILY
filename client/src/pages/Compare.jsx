@@ -5,7 +5,7 @@ import { useAuth } from '../context/AuthContext';
 import { supabase } from '../services/supabaseClient';
 import { useCurrency } from '../context/CurrencyContext';
 import { useLanguage } from '../context/LanguageContext';
-import { compareLoans, saveComparison, explainComparison } from '../services/api';
+import { compareLoans, explainComparison } from '../services/api';
 import { calculateTaxSavings } from '../utils/eligibilityCalculator';
 import { ComparisonTable } from '../components/ComparisonTable';
 import { CostChart } from '../components/CostChart';
@@ -111,20 +111,17 @@ export function Compare() {
         return;
       }
 
-      try {
-        await saveComparison(payload, session.access_token);
-      } catch (saveError) {
-        if (!/invalid or expired|expired authentication|jwt/i.test(saveError.message || '')) {
-          throw saveError;
-        }
+      const { error: saveError } = await supabase
+        .from('saved_comparisons')
+        .insert({
+          user_id: user.id,
+          loan_ids: payload.loanIds,
+          amount: payload.amount,
+          tenure_months: payload.tenureMonths
+        });
 
-        const { data: { session: refreshedSession }, error: refreshError } = await supabase.auth.refreshSession();
-        if (refreshError || !refreshedSession?.access_token) {
-          setError('Your session has expired. Please sign in again, then return to this comparison and save it.');
-          return;
-        }
-
-        await saveComparison(payload, refreshedSession.access_token);
+      if (saveError) {
+        throw saveError;
       }
 
       setSaveSuccess('Comparison saved successfully to your account!');
