@@ -1,5 +1,5 @@
 // server/middleware/auth.js
-const { supabaseAdmin } = require('../config/supabase');
+const { createAuthClient } = require('../config/supabase');
 
 /**
  * Middleware to verify Supabase access token in Authorization: Bearer <token> header
@@ -16,7 +16,8 @@ async function authenticateToken(req, res, next) {
   }
 
   try {
-    const { data: { user }, error } = await supabaseAdmin.auth.getUser(token);
+    const authClient = createAuthClient(token);
+    const { data: { user }, error } = await authClient.auth.getUser(token);
     if (error || !user) {
       return res.status(401).json({ error: 'Invalid or expired authentication token' });
     }

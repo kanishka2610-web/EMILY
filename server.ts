@@ -5,6 +5,7 @@ import { fileURLToPath } from 'url';
 import { createRequire } from 'module';
 import dotenv from 'dotenv';
 
+dotenv.config({ path: path.resolve(process.cwd(), '.env.development.local') });
 dotenv.config();
 
 const __filename = fileURLToPath(import.meta.url);
