@@ -1,5 +1,5 @@
 // client/src/pages/Login.jsx
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import './Login.css';
@@ -10,6 +10,7 @@ export function Login() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [cooldown, setCooldown] = useState(0);
   const [message, setMessage] = useState('');
 
   const { signIn, signUp } = useAuth();
@@ -18,10 +19,23 @@ export function Login() {
 
   const from = location.state?.from?.pathname || '/';
 
+  useEffect(() => {
+    if (cooldown <= 0) return undefined;
+    const timer = window.setInterval(() => {
+      setCooldown((current) => Math.max(0, current - 1));
+    }, 1000);
+    return () => window.clearInterval(timer);
+  }, [cooldown]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
     setMessage('');
+
+    if (isSignUp && cooldown > 0) {
+      setError(`Please wait ${cooldown} seconds before requesting another confirmation email.`);
+      return;
+    }
 
     if (!email || !password) {
       setError('Please enter both email and password.');
@@ -32,13 +46,20 @@ export function Login() {
     try {
       if (isSignUp) {
         await signUp(email, password);
-        setMessage('Sign-up successful! If confirmation is required, please check your inbox, or you can now sign in.');
+        setCooldown(60);
+        setMessage('Confirmation email sent. Check your inbox and use the latest link. You can request another email after 60 seconds.');
       } else {
         await signIn(email, password);
         navigate(from, { replace: true });
       }
     } catch (err) {
-      setError(err.message || 'Authentication failed. Please verify credentials.');
+      const errorMessage = err?.message?.toLowerCase() || '';
+      if (errorMessage.includes('rate limit') || errorMessage.includes('too many requests')) {
+        setCooldown(60);
+        setError('Supabase has temporarily limited confirmation emails. Please wait a minute, then try again with the same email.');
+      } else {
+        setError(err.message || 'Authentication failed. Please verify credentials.');
+      }
     } finally {
       setLoading(false);
     }
@@ -88,8 +109,8 @@ export function Login() {
             />
           </div>
 
-          <button type="submit" className="login-btn" disabled={loading}>
-            {loading ? 'Processing...' : isSignUp ? 'Sign Up' : 'Sign In'}
+          <button type="submit" className="login-btn" disabled={loading || (isSignUp && cooldown > 0)}>
+            {loading ? 'Processing...' : isSignUp && cooldown > 0 ? `Try again in ${cooldown}s` : isSignUp ? 'Sign Up' : 'Sign In'}
           </button>
         </form>
 
