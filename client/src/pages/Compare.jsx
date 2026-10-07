@@ -15,7 +15,7 @@ import './Compare.css';
 export function Compare() {
   const location = useLocation();
   const navigate = useNavigate();
-  const { user, token } = useAuth();
+  const { user } = useAuth();
   const { currency, formatMoney } = useCurrency();
   const { language, t } = useLanguage();
 
@@ -89,8 +89,8 @@ export function Compare() {
   };
 
   const handleSaveComparison = async () => {
-    if (!user || !token) {
-      navigate('/login');
+    if (!user) {
+      navigate('/login', { state: { from: location } });
       return;
     }
 
@@ -99,9 +99,9 @@ export function Compare() {
     setError('');
 
     try {
-      const { data: { session: freshSession }, error: sessionError } = await supabase.auth.getSession();
+      const { data: { session: freshSession }, error: sessionError } = await supabase.auth.refreshSession();
       if (sessionError || !freshSession?.access_token) {
-        navigate('/login', { state: { from: location } });
+        setError('Your session is not ready yet. Please wait a moment and try saving again.');
         return;
       }
 
@@ -116,8 +116,7 @@ export function Compare() {
       setSaveSuccess('Comparison saved successfully to your account!');
     } catch (err) {
       if (/invalid or expired|expired authentication|jwt/i.test(err.message || '')) {
-        await supabase.auth.signOut();
-        navigate('/login', { state: { from: location } });
+        setError('Your session has expired. Please sign in again, then return to this comparison and save it.');
         return;
       }
       setError(err.message || 'Failed to save comparison.');
