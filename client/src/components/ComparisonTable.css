@@ -1,0 +1,99 @@
+/* client/src/components/ComparisonTable.css */
+.comparison-table-wrapper {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow-x: auto;
+  margin-top: 24px;
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: middle;
+}
+
+.metric-label-cell {
+  background-color: #f8fafc;
+  color: var(--color-text-main);
+  font-weight: 600;
+  font-size: 0.95rem;
+  width: 220px;
+  min-width: 200px;
+  border-right: 1px solid var(--color-border);
+}
+
+.metric-col-cell {
+  min-width: 190px;
+  font-size: 0.95rem;
+  color: var(--color-text-main);
+  position: relative;
+}
+
+.table-header-bank {
+  background-color: #f1f5f9;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+}
+
+.bank-header-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.bank-header-type {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* Highlight for best value in each row */
+.best-value {
+  background-color: var(--color-best) !important;
+  color: var(--color-best-text) !important;
+  font-weight: 700 !important;
+}
+
+.best-badge {
+  display: inline-block;
+  background-color: #16a34a;
+  color: #ffffff;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.btn-schedule {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 8px 14px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  background-color: var(--color-primary-light);
+  border: 1px solid #bfdbfe;
+  border-radius: var(--radius-sm);
+  transition: all 0.15s ease;
+}
+
+.btn-schedule:hover {
+  background-color: #dbeafe;
+  border-color: #93c5fd;
+}

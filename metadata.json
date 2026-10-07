@@ -1,0 +1,7 @@
+{
+  "name": "Loan Comparison Platform",
+  "description": "Compare loans by interest rate, tenure, fees, and monthly EMI with side-by-side analysis, amortization schedules, prepayment simulations, and AI recommendations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
