@@ -98,27 +98,37 @@ export function Compare() {
     setSaveSuccess('');
     setError('');
 
+    const payload = {
+      loanIds,
+      amount: Number(amount),
+      tenureMonths: Number(tenureMonths)
+    };
+
     try {
-      const { data: { session: freshSession }, error: sessionError } = await supabase.auth.refreshSession();
-      if (sessionError || !freshSession?.access_token) {
-        setError('Your session is not ready yet. Please wait a moment and try saving again.');
+      const { data: { session }, error: sessionError } = await supabase.auth.getSession();
+      if (sessionError || !session?.access_token) {
+        setError('Your session is not available. Please sign in again, then try saving.');
         return;
       }
 
-      await saveComparison(
-        {
-          loanIds,
-          amount: Number(amount),
-          tenureMonths: Number(tenureMonths)
-        },
-        freshSession.access_token
-      );
+      try {
+        await saveComparison(payload, session.access_token);
+      } catch (saveError) {
+        if (!/invalid or expired|expired authentication|jwt/i.test(saveError.message || '')) {
+          throw saveError;
+        }
+
+        const { data: { session: refreshedSession }, error: refreshError } = await supabase.auth.refreshSession();
+        if (refreshError || !refreshedSession?.access_token) {
+          setError('Your session has expired. Please sign in again, then return to this comparison and save it.');
+          return;
+        }
+
+        await saveComparison(payload, refreshedSession.access_token);
+      }
+
       setSaveSuccess('Comparison saved successfully to your account!');
     } catch (err) {
-      if (/invalid or expired|expired authentication|jwt/i.test(err.message || '')) {
-        setError('Your session has expired. Please sign in again, then return to this comparison and save it.');
-        return;
-      }
       setError(err.message || 'Failed to save comparison.');
     } finally {
       setIsSaving(false);
