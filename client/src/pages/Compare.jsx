@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { supabase } from '../services/supabaseClient';
 import { useCurrency } from '../context/CurrencyContext';
 import { useLanguage } from '../context/LanguageContext';
 import { compareLoans, saveComparison, explainComparison } from '../services/api';
@@ -98,16 +99,27 @@ export function Compare() {
     setError('');
 
     try {
+      const { data: { session: freshSession }, error: sessionError } = await supabase.auth.getSession();
+      if (sessionError || !freshSession?.access_token) {
+        navigate('/login', { state: { from: location } });
+        return;
+      }
+
       await saveComparison(
         {
           loanIds,
           amount: Number(amount),
           tenureMonths: Number(tenureMonths)
         },
-        token
+        freshSession.access_token
       );
       setSaveSuccess('Comparison saved successfully to your account!');
     } catch (err) {
+      if (/invalid or expired|expired authentication|jwt/i.test(err.message || '')) {
+        await supabase.auth.signOut();
+        navigate('/login', { state: { from: location } });
+        return;
+      }
       setError(err.message || 'Failed to save comparison.');
     } finally {
       setIsSaving(false);
