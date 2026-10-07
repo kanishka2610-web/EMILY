@@ -13,11 +13,17 @@ export function Login() {
   const [cooldown, setCooldown] = useState(0);
   const [message, setMessage] = useState('');
 
-  const { signIn, signUp } = useAuth();
+  const { user, signIn, signUp } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
   const from = location.state?.from?.pathname || '/';
+
+  useEffect(() => {
+    if (user) {
+      navigate(from, { replace: true });
+    }
+  }, [user, navigate, from]);
 
   useEffect(() => {
     if (cooldown <= 0) return undefined;
