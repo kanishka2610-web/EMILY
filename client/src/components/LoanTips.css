@@ -1,6 +1,6 @@
 /* client/src/components/LoanTips.css */
 .loan-tips-section {
-  background: linear-gradient(180deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.94) 100%);
+  background: #17233b;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: 30px 24px;
@@ -58,7 +58,7 @@
   font-weight: 600;
   border-radius: 9999px;
   border: 1px solid var(--color-border);
-  background-color: rgba(255, 255, 255, 0.04);
+  background-color: #24324b;
   color: var(--color-text-muted);
   transition: all 0.15s ease;
   cursor: pointer;
@@ -87,7 +87,7 @@
   height: 38px;
   border-radius: 50%;
   border: 1px solid var(--color-border);
-  background-color: rgba(255, 255, 255, 0.04);
+  background-color: #24324b;
   color: var(--color-text-main);
   display: flex;
   align-items: center;
@@ -134,7 +134,7 @@
 .tip-card {
   width: 335px;
   scroll-snap-align: start;
-  background-color: rgba(30, 41, 59, 0.78);
+  background-color: #1e293b;
   border: 1.5px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: 22px;

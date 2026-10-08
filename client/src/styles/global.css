@@ -14,10 +14,10 @@
   --color-accent-hover: #06b6d4;
   --color-accent-light: rgba(20, 184, 166, 0.14);
   --color-bg: #0b1326;
-  --color-card: rgba(30, 41, 59, 0.72);
-  --color-text-main: #dae2fd;
-  --color-text-muted: #94a3b8;
-  --color-border: rgba(148, 163, 184, 0.16);
+  --color-card: #1e293b;
+  --color-text-main: #e2e8f0;
+  --color-text-muted: #a7b4c8;
+  --color-border: #334155;
   --color-border-focus: #06b6d4;
   --color-danger: #f43f5e;
   --color-danger-light: rgba(244, 63, 94, 0.12);
@@ -152,8 +152,8 @@ input, select, textarea {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background-color: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background-color: #24324b;
+  border: 1px solid #475569;
   color: #f8fafc;
   padding: 10px 18px;
   border-radius: var(--radius-md);
