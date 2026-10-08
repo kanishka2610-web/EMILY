@@ -21,7 +21,7 @@
 
 .loan-card.selected {
   border-color: var(--color-primary);
-  background-color: #f8faff;
+  background-color: #1e293b;
   box-shadow: 0 0 0 1px var(--color-primary), var(--shadow-md);
 }
 
@@ -72,9 +72,9 @@
 }
 
 .badge-country-us {
-  background-color: #f1f5f9;
+  background-color: #24324b;
   color: #475569;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #475569;
 }
 
 .badge-home {
@@ -111,7 +111,7 @@
 }
 
 .card-rate-section {
-  background-color: #f1f5f9;
+  background-color: #24324b;
   border-radius: var(--radius-md);
   padding: 12px 14px;
   display: flex;
