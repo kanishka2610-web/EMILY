@@ -195,12 +195,23 @@ export function Compare() {
 
   return (
     <div className="compare-page">
+      <section className="compare-hero">
+        <div className="compare-hero-copy">
+          <div className="compare-overline"><span className="live-dot" /> RatePulse Intelligence <span>•</span> Live market refresh</div>
+          <h1>Find &amp; Compare Personalized Loan Rates in Seconds</h1>
+          <p>Real-time comparison insights from trusted lenders, built to make every borrowing decision clearer.</p>
+        </div>
+        <div className="compare-metrics" aria-label="Comparison metrics">
+          <div><span>Loans selected</span><strong>{loanIds.length}</strong></div>
+          <div><span>Loan term</span><strong>{tenureMonths}m</strong></div>
+        </div>
+      </section>
+
       <div className="compare-header-row">
         <div>
-          <h1>Side-by-Side Loan Comparison</h1>
-          <p>
-            Comparing {loanIds.length} loans for {formatMoney(amount, comparisonData?.currency)} over {tenureMonths} months
-          </p>
+          <div className="section-kicker">Side-by-side analysis</div>
+          <h2>Compare your selected offers</h2>
+          <p>Comparing {loanIds.length} loans for {formatMoney(amount, comparisonData?.currency)} over {tenureMonths} months</p>
         </div>
         <div className="selection-actions">
           <button
@@ -209,13 +220,14 @@ export function Compare() {
             onClick={handlePrint}
             title="Print or export clean report for bank visits"
           >
-            🖨️ Export / Print Report
+            Export / Print Report
           </button>
           <Link to="/" className="btn-secondary">
             Change Selection
           </Link>
         </div>
       </div>
+
 
       {/* Input controls */}
       <section className="compare-controls-card">
