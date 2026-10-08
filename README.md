@@ -97,7 +97,9 @@ The platform empowers users to compare loans across interest rates, tenures, pro
 4. **Enable Email Authentication**:
    - Go to **Authentication** > **Providers** > **Email**.
    - Ensure the Email provider is **Enabled**.
-   - Under **Email Auth**, disable "Confirm email" if you want instant login during development/testing.
+   - **Confirm email is disabled for this project**, so users can log in immediately after signing up without opening a confirmation email.
+   - Users can now register and sign in directly with their email address and password during development/testing.
+   - For production, consider enabling email confirmation before launch and configuring Supabase email delivery.
 
 ---
 
