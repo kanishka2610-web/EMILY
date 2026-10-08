@@ -3,6 +3,102 @@
   display: flex;
   flex-direction: column;
   gap: 28px;
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+.compare-hero {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 34px;
+  overflow: hidden;
+  border: 1px solid rgba(76, 215, 246, 0.16);
+  border-radius: 24px;
+  background: radial-gradient(ellipse 80% 80% at 50% -50%, rgba(6, 182, 212, 0.22), transparent 70%), linear-gradient(135deg, rgba(19, 27, 46, 0.98), rgba(11, 19, 38, 0.9));
+  box-shadow: var(--shadow-lg);
+}
+
+.compare-hero-copy {
+  max-width: 720px;
+}
+
+.compare-overline,
+.section-kicker {
+  color: var(--color-primary);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.compare-overline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--color-primary);
+  box-shadow: 0 0 12px var(--color-primary);
+}
+
+.compare-hero h1 {
+  margin: 0;
+  max-width: 680px;
+  color: var(--color-text-main);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+}
+
+.compare-hero p {
+  max-width: 620px;
+  margin: 14px 0 0;
+  color: var(--color-text-muted);
+  font-size: 1rem;
+}
+
+.compare-metrics {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.compare-metrics div {
+  min-width: 132px;
+  padding: 14px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  background: rgba(34, 42, 61, 0.72);
+}
+
+.compare-metrics span {
+  display: block;
+  color: var(--color-text-muted);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.compare-metrics strong {
+  display: block;
+  margin-top: 4px;
+  color: var(--color-primary);
+  font-size: 1.35rem;
+}
+
+.compare-header-row h2 {
+  margin: 4px 0;
+  color: var(--color-text-main);
+  font-size: 1.5rem;
+  line-height: 1.2;
 }
 
 .compare-header-row {
@@ -258,6 +354,26 @@
 @media (max-width: 700px) {
   .compare-page {
     gap: 20px;
+  }
+
+  .compare-hero {
+    align-items: stretch;
+    flex-direction: column;
+    padding: 22px 18px;
+    border-radius: 18px;
+  }
+
+  .compare-hero h1 {
+    font-size: 2rem;
+  }
+
+  .compare-metrics {
+    width: 100%;
+  }
+
+  .compare-metrics div {
+    flex: 1;
+    min-width: 0;
   }
 
   .compare-header-row {
