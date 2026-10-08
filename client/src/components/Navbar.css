@@ -147,3 +147,83 @@
 .btn-signin:hover {
   background-color: var(--color-primary-hover);
 }
+
+@media (max-width: 900px) {
+  .navbar-container {
+    height: auto;
+    min-height: 64px;
+    padding: 10px 16px;
+    flex-wrap: wrap;
+    gap: 10px 16px;
+  }
+
+  .navbar-links {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 2px 0 4px;
+    scrollbar-width: none;
+  }
+
+  .navbar-links::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-link {
+    flex: 0 0 auto;
+    font-size: 0.85rem;
+    padding: 4px 2px;
+  }
+
+  .navbar-auth {
+    margin-left: auto;
+    gap: 8px;
+  }
+
+  .user-email {
+    max-width: 120px;
+  }
+}
+
+@media (max-width: 560px) {
+  .navbar-brand {
+    font-size: 1.05rem;
+    gap: 7px;
+  }
+
+  .brand-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .language-select {
+    max-width: 44px;
+    padding: 7px 4px;
+    font-size: 0;
+  }
+
+  .language-select option {
+    font-size: 0.85rem;
+  }
+
+  .currency-toggle-btn {
+    padding: 7px 8px;
+    font-size: 0.78rem;
+  }
+
+  .user-email {
+    display: none;
+  }
+
+  .btn-signout,
+  .btn-signin {
+    padding: 7px 10px;
+    font-size: 0.78rem;
+  }
+
+  .navbar-links {
+    justify-content: flex-start;
+  }
+}

@@ -166,3 +166,15 @@ input, select, textarea {
   opacity: 0.5;
   cursor: not-allowed;
 }
+
+@media (max-width: 600px) {
+  .main-content {
+    padding: 22px 12px 40px;
+  }
+
+  .status-error,
+  .status-success {
+    padding: 13px 14px;
+    font-size: 0.88rem;
+  }
+}

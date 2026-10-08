@@ -252,6 +252,73 @@
 }
 
 /* Print Styles */
+@media (max-width: 700px) {
+  .compare-page {
+    gap: 20px;
+  }
+
+  .compare-header-row {
+    gap: 12px;
+  }
+
+  .compare-header-row h1 {
+    font-size: 1.45rem;
+    line-height: 1.2;
+  }
+
+  .compare-header-row p {
+    font-size: 0.86rem;
+  }
+
+  .compare-header-row .btn-print-report,
+  .compare-header-row .btn-secondary {
+    width: 100%;
+  }
+
+  .compare-controls-card {
+    padding: 16px;
+  }
+
+  .compare-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .form-item {
+    min-width: 0;
+  }
+
+  .action-buttons-group {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top: 14px;
+  }
+
+  .action-buttons-group button,
+  .btn-save-comparison,
+  .btn-explain {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .explainer-container,
+  .tax-savings-panel {
+    padding: 16px;
+  }
+
+  .explainer-header,
+  .tax-panel-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .tax-panel-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media print {
   .navbar,
   .chatbot-launcher,
