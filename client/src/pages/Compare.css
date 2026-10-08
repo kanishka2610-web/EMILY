@@ -15,9 +15,9 @@
   gap: 24px;
   padding: 34px;
   overflow: hidden;
-  border: 1px solid #164e63;
+  border: 1px solid #005236;
   border-radius: 24px;
-  background: linear-gradient(135deg, #172554, #0f2740);
+  background: linear-gradient(135deg, #18222d, #10141a);
   box-shadow: var(--shadow-lg);
 }
 
@@ -74,9 +74,9 @@
 .compare-metrics div {
   min-width: 132px;
   padding: 14px 16px;
-  border: 1px solid #475569;
+  border: 1px solid #3c4a42;
   border-radius: 14px;
-  background: #263653;
+  background: #1c2026;
 }
 
 .compare-metrics span {
@@ -122,8 +122,8 @@
 }
 
 .compare-controls-card {
-  background: #1e293b;
-  border: 1px solid #334155;
+  background: #0e141b;
+  border: 1px solid #3c4a42;
   border-radius: var(--radius-lg);
   padding: 24px;
   box-shadow: var(--shadow-md);
