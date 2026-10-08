@@ -94,12 +94,6 @@ The platform empowers users to compare loans across interest rates, tenures, pro
    - Option B (Automated CLI): Run `npm run migrate:loans` to execute the Node.js migration script (`server/scripts/migrateLoans.js`).
    - This seeds and updates real-world Indian bank products (SBI, HDFC, ICICI, Bank of Baroda, Axis Bank, PNB, Kotak, Canara Bank) with benchmark interest rates and fees.
 
-4. **Enable Email Authentication**:
-   - Go to **Authentication** > **Providers** > **Email**.
-   - Ensure the Email provider is **Enabled**.
-   - **Confirm email is disabled for this project**, so users can log in immediately after signing up without opening a confirmation email.
-   - Users can now register and sign in directly with their email address and password during development/testing.
-   - For production, consider enabling email confirmation before launch and configuring Supabase email delivery.
 
 ---
 
