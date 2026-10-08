@@ -40,7 +40,7 @@
   width: 400px;
   max-width: calc(100vw - 32px);
   max-height: calc(100vh - 48px);
-  background-color: #ffffff;
+  background-color: #0e141b;
   border-radius: var(--radius-lg);
   box-shadow: 0 25px 40px -10px rgba(15, 23, 42, 0.25), 0 0 0 1px var(--color-border);
   display: flex;
@@ -125,10 +125,10 @@
   padding: 5px 10px;
   border-radius: 9999px;
   border: 1px solid var(--color-border);
-  background-color: #f8fafc;
+  background-color: #1c2623;
   font-size: 0.76rem;
   font-weight: 600;
-  color: #334155;
+  color: #dfe2eb;
   white-space: nowrap;
   cursor: pointer;
   transition: all 0.15s ease;
@@ -190,8 +190,8 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   font-size: 0.9rem;
-  color: var(--color-text-main);
-  background-color: #ffffff;
+  color: #dfe2eb;
+  background-color: #1c2026;
 }
 
 .calc-number-input:focus {
@@ -213,8 +213,8 @@
   padding: 4px 10px;
   font-size: 0.75rem;
   font-weight: 600;
-  background-color: #f8fafc;
-  color: var(--color-text-muted);
+  background-color: #1c2623;
+  color: #bbcabf;
   border: none;
   cursor: pointer;
   transition: all 0.15s ease;

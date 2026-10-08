@@ -63,17 +63,17 @@
   padding: 8px 14px;
   border-radius: 9999px;
   border: 1.5px solid var(--color-border);
-  background-color: #ffffff;
+  background-color: #1c2623;
   font-size: 0.84rem;
   font-weight: 600;
-  color: #334155;
+  color: #dfe2eb;
   cursor: pointer;
   transition: all 0.15s ease;
 }
 
 .preset-btn:hover {
-  background-color: #f1f5f9;
-  border-color: #cbd5e1;
+  background-color: #123b2d;
+  border-color: #10b981;
 }
 
 .preset-btn.active {
@@ -104,7 +104,7 @@
 .calc-field-value {
   font-size: 1.15rem;
   font-weight: 800;
-  color: #0f766e;
+  color: #10b981;
 }
 
 .calc-dual-controls {
@@ -128,8 +128,8 @@
   border-radius: var(--radius-md);
   font-size: 0.95rem;
   font-weight: 600;
-  color: var(--color-text-main);
-  background-color: #ffffff;
+  color: #dfe2eb;
+  background-color: #1c2026;
 }
 
 .calc-num-input:focus {
@@ -149,8 +149,8 @@
   padding: 5px 12px;
   font-size: 0.8rem;
   font-weight: 600;
-  background-color: #f8fafc;
-  color: var(--color-text-muted);
+  background-color: #1c2623;
+  color: #bbcabf;
   border: none;
   cursor: pointer;
   transition: all 0.15s ease;
@@ -191,7 +191,7 @@
 .hero-emi-amount {
   font-size: 2.5rem;
   font-weight: 800;
-  color: #0f766e;
+  color: #10b981;
   line-height: 1.1;
 }
 
@@ -218,7 +218,7 @@
 .breakdown-row-val {
   font-size: 1.15rem;
   font-weight: 800;
-  color: #0f766e;
+  color: #10b981;
 }
 
 .proportion-meter {
