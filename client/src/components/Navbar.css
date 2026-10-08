@@ -104,8 +104,9 @@
 }
 
 .currency-toggle-btn:hover {
-  background-color: #e2e8f0;
-  border-color: #cbd5e1;
+  background-color: #123b2d;
+  border-color: #10b981;
+  color: #6ffbbe;
 }
 
 .user-email {
