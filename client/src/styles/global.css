@@ -6,29 +6,29 @@
 }
 
 :root {
-  --font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-  --color-primary: #06b6d4;
-  --color-primary-hover: #14b8a6;
-  --color-primary-light: rgba(6, 182, 212, 0.14);
-  --color-accent: #14b8a6;
-  --color-accent-hover: #06b6d4;
-  --color-accent-light: rgba(20, 184, 166, 0.14);
-  --color-bg: #0b1326;
-  --color-card: rgba(30, 41, 59, 0.72);
-  --color-text-main: #dae2fd;
-  --color-text-muted: #94a3b8;
-  --color-border: rgba(148, 163, 184, 0.16);
-  --color-border-focus: #06b6d4;
-  --color-danger: #f43f5e;
-  --color-danger-light: rgba(244, 63, 94, 0.12);
-  --color-highlight: rgba(245, 158, 11, 0.14);
-  --color-best: rgba(20, 184, 166, 0.14);
-  --color-best-text: #4fdbc8;
-  --shadow-sm: 0 10px 30px -18px rgba(2, 6, 23, 0.8);
-  --shadow-md: 0 10px 30px -10px rgba(2, 6, 23, 0.5);
-  --shadow-lg: 0 20px 45px -18px rgba(2, 6, 23, 0.8);
-  --radius-sm: 8px;
-  --radius-md: 12px;
+  --font-family: 'Hanken Grotesk', system-ui, sans-serif;
+  --color-primary: #10b981;
+  --color-primary-hover: #34d399;
+  --color-primary-light: #123b2d;
+  --color-accent: #34d399;
+  --color-accent-hover: #6ffbbe;
+  --color-accent-light: #123b2d;
+  --color-bg: #10141a;
+  --color-card: #0e141b;
+  --color-text-main: #dfe2eb;
+  --color-text-muted: #bbcabf;
+  --color-border: #3c4a42;
+  --color-border-focus: #4edea3;
+  --color-danger: #ffb4ab;
+  --color-danger-light: #3b1719;
+  --color-highlight: #3a2b12;
+  --color-best: #123b2d;
+  --color-best-text: #6ffbbe;
+  --shadow-sm: 0 8px 24px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.55);
+  --radius-sm: 4px;
+  --radius-md: 8px;
   --radius-lg: 16px;
 }
 
@@ -129,8 +129,8 @@ input, select, textarea {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background: linear-gradient(135deg, #06b6d4, #14b8a6);
-  color: #001f26;
+  background: #10b981;
+  color: #090d12;
   padding: 10px 20px;
   border-radius: var(--radius-md);
   font-weight: 600;
@@ -152,8 +152,8 @@ input, select, textarea {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background-color: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background-color: #24324b;
+  border: 1px solid #475569;
   color: #f8fafc;
   padding: 10px 18px;
   border-radius: var(--radius-md);
